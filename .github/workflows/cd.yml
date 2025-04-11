@@ -20,3 +20,9 @@ jobs:
 
         - name: Build
           run: ./scripts/buildprod.sh
+
+        - name: Set up gcloud Cloud SDK environment
+          uses: google-github-actions/setup-gcloud@v2.1.4
+
+        - name: Build and push Docker image
+          uses: gcloud builds submit --tag us-central1-docker.pkg.dev/notely-456516/notely-ar-repo/notely:latest .
